@@ -78,6 +78,16 @@ platform(
 )
 
 platform(
+    name = "rv32imc",
+    constraint_values = [
+        "@bazel_embedded//constraints/fpu:none",
+        "@bazel_embedded//constraints/cpu:rv32imc",
+        # TODO(cfrantz): change to this after upstreaming cpu constraints.
+        # "@platforms//cpu:riscv32",
+    ],
+)
+
+platform(
     name = "stm32f2xx",
     parents = [":cortex_m3"],
 )
