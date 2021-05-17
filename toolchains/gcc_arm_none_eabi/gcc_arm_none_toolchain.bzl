@@ -130,7 +130,13 @@ def _gcc_arm_none_toolchain_config_info_impl(ctx):
                         _get_injected_headers_command_line(ctx),
         sysroot = None,
     )
-    embedded_features = GetEmbeddedFeatures("GCC")
+    embedded_features = GetEmbeddedFeatures(
+        compiler = "GCC",
+        architecture = ctx.attr.architecture,
+        float_abi = ctx.attr.float_abi,
+        endian = ctx.attr.endian,
+        fpu = ctx.attr.fpu,
+    )
     toolchain_config_info = cc_common.create_cc_toolchain_config_info(
         ctx = ctx,
         toolchain_identifier = ctx.attr.toolchain_identifier,
