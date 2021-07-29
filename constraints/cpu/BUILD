@@ -17,10 +17,9 @@ constraint_value(
 )
 
 # TODO(cfrantz): Upstream to https://github.com/bazelbuild/platforms
+# See https://github.com/bazelbuild/platforms/pull/30.
 constraint_value(
-    # Based on the current riscv64 consrtaint in platforms, I wonder
-    # if this should be `riscv32` or `rv32imc`.
-    name = "rv32imc",
+    name = "riscv32",
     constraint_setting = "@platforms//cpu:cpu",
     visibility = ["//visibility:public"],
 )

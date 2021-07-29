@@ -176,11 +176,11 @@ lowrisc_toolchain_rv32imc_toolchain_config = rule(
     implementation = _lowrisc_toolchain_rv32imc_toolchain_config_info_impl,
     attrs = {
         "architecture": attr.string(
-            default = "rv32imc",
+            default = "riscv32",
             doc = "System architecture",
             mandatory = False,
             values = [
-                "rv32imc",
+                "riscv32",
             ],
         ),
         "float_abi": attr.string(

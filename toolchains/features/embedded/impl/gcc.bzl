@@ -68,9 +68,9 @@ _EXCEPTIONS_FEATURE = feature(
 
 def _GetSysSpecFeature(architecture, float_abi, endian, fpu):
     # FIXME(cfrantz): elevate this to device specs?
-    if architecture == "rv32imc":
+    if architecture == "riscv32":
         compiler_flags = [
-            "-march=" + architecture,
+            "-march=rv32imc",
             "-mabi=ilp32",
             "-mcmodel=medany",
         ]

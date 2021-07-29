@@ -1,7 +1,7 @@
 load("//devices:device_config.bzl", "device_config")
 
 RV32IMC_DEVICE_CONFIG = device_config(
-    cpu = "rv32imc",
+    cpu = "riscv32",
     endian = "little",
     float_abi = "soft",
     fpu = "none",

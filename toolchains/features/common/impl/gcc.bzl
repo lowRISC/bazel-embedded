@@ -49,7 +49,7 @@ def GccIncludeFeature(include_paths):
 def GccAchitectureFeature(architecture, float_abi, endian, fpu):
     if fpu == "none":
         fpu = "auto"
-    if architecture == 'rv32imc':
+    if architecture == 'riscv32':
         # TODO(cfrantz): why do I have to do this?  Seems the lowRISC gcc
         # doesn't support `-mfpu`, `-mfloat-abi` or `-mlittle-endian`.
         _ARCHITECTURE_FEATURE = feature(
@@ -63,7 +63,7 @@ def GccAchitectureFeature(architecture, float_abi, endian, fpu):
                         flag_group(
                             flags = [
                                 # Set the system architecture/cpu
-                                "-march=" + architecture,
+                                "-march=rv32imc",
                                 "-mabi=ilp32",
                                 "-mcmodel=medany",
                             ],
