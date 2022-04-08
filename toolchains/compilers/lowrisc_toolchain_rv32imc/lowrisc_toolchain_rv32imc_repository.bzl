@@ -21,6 +21,7 @@ def _com_lowrisc_toolchain_rv32imc_repository_impl(repository_ctx):
     response = repository_ctx.execute(include_tools.ShellCommand(
         "bin/riscv32-unknown-elf-clang++" + postfix,
         [
+            "--gcc-toolchain=$(pwd)",
             "-specs=nano.specs",
             "-specs=nosys.specs",
         ],

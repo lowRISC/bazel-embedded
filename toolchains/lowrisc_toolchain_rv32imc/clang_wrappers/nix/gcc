@@ -24,5 +24,7 @@
 
 set -euo pipefail
 # Workaround to replace all system includes with user includes
-external/com_lowrisc_toolchain_rv32imc_compiler/bin/riscv32-unknown-elf-clang "${@}" -fdiagnostics-color=always 
-#external/com_lowrisc_toolchain_rv32imc_compiler/bin/riscv32-unknown-elf-gcc "$@"
+external/com_lowrisc_toolchain_rv32imc_compiler/bin/riscv32-unknown-elf-clang \
+    --gcc-toolchain=external/com_lowrisc_toolchain_rv32imc_compiler \
+    -fdiagnostics-color=always \
+    "${@}"
