@@ -1,6 +1,5 @@
 """ Fetch remote third party dependencies """
 
-load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 load("@bazel_embedded//toolchains/upstream:toolchain_upstream_deps.bzl", "toolchain_upstream_deps")
 
@@ -21,11 +20,11 @@ def bazel_embedded_deps():
         toolchain_upstream_deps()
 
     if not native.existing_rule("rules_cc"):
-        git_repository(
+        http_archive(
             name = "rules_cc",
-            commit = "a636005ba28c0344da5110bd8532184c74b6ffdf",
-            remote = "https://github.com/bazelbuild/rules_cc.git",
-            shallow_since = "1583316607 -0800",
+            sha256 = "123ababe4be661f2fc9189d3b24deabc003926e87d991832cd46b6ae59f7b3c8",
+            strip_prefix = "rules_cc-a636005ba28c0344da5110bd8532184c74b6ffdf",
+            url = "https://github.com/bazelbuild/rules_cc/archive/a636005ba28c0344da5110bd8532184c74b6ffdf.tar.gz",
         )
     if not native.existing_rule("bazel_skylib"):
         http_archive(

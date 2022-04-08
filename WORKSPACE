@@ -27,13 +27,12 @@ load("//:bazel_embedded_deps.bzl", "bazel_embedded_deps")
 bazel_embedded_deps()
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
-load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
-git_repository(
+http_archive(
     name = "rules_cc",
-    commit = "a636005ba28c0344da5110bd8532184c74b6ffdf",
-    remote = "https://github.com/bazelbuild/rules_cc.git",
-    shallow_since = "1583316607 -0800",
+    sha256 = "123ababe4be661f2fc9189d3b24deabc003926e87d991832cd46b6ae59f7b3c8",
+    strip_prefix = "rules_cc-a636005ba28c0344da5110bd8532184c74b6ffdf",
+    url = "https://github.com/bazelbuild/rules_cc/archive/a636005ba28c0344da5110bd8532184c74b6ffdf.tar.gz",
 )
 
 http_archive(
@@ -65,10 +64,10 @@ load("//toolchains/gcc_arm_none_eabi:gcc_arm_none_toolchain.bzl", "register_gcc_
 
 register_gcc_arm_none_toolchain()
 
-git_repository(
+http_archive(
     name = "io_bazel_stardoc",
-    remote = "https://github.com/bazelbuild/stardoc.git",
-    tag = "0.4.0",
+    strip_prefix = "stardoc-4378e9b6bb2831de7143580594782f538f461180",
+    url = "https://github.com/bazelbuild/stardoc/archive/4378e9b6bb2831de7143580594782f538f461180.tar.gz",
 )
 
 load("@io_bazel_stardoc//:setup.bzl", "stardoc_repositories")
