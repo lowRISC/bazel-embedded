@@ -46,7 +46,12 @@ def ClangIncludeFeature(include_paths, sysroot):
                 ],
             ),
             flag_set(
-                actions = _CPP_ALL_COMPILE_ACTIONS,
+                actions = [
+                    ACTION_NAMES.cpp_compile,
+                    ACTION_NAMES.cpp_header_parsing,
+                    ACTION_NAMES.cpp_module_compile,
+                    ACTION_NAMES.cpp_module_codegen,
+                ],
                 flag_groups = [
                     flag_group(
                         flags = ["-nostdinc++"],
