@@ -277,8 +277,7 @@ def lowrisc_toolchain_rv32imc_toolchain(name, compiler_components, architecture,
             "@platforms//cpu:x86_64",
         ],
         target_compatible_with = [
-            # TODO(cfrantz): change to platforms package after upstreaming.
-            "@bazel_embedded//constraints/cpu:" + architecture,
+            "@platforms//cpu:" + architecture,
             "//constraints/fpu:" + fpu,
         ],
         toolchain = ":" + name,
