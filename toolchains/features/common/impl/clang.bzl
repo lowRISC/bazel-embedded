@@ -114,7 +114,7 @@ def ClangAchitectureFeature(architecture, float_abi, endian, fpu):
 
 _ALL_WARNINGS_FEATURE = feature(
     name = "all_warnings",
-    enabled = False,
+    enabled = True,
     flag_sets = [
         flag_set(
             actions = _CPP_ALL_COMPILE_ACTIONS + _C_ALL_COMPILE_ACTIONS,
@@ -128,7 +128,7 @@ _ALL_WARNINGS_FEATURE = feature(
 )
 _ALL_WARNINGS_AS_ERRORS_FEATURE = feature(
     name = "all_warnings_as_errors",
-    enabled = False,
+    enabled = True,
     flag_sets = [
         flag_set(
             actions = _CPP_ALL_COMPILE_ACTIONS + _C_ALL_COMPILE_ACTIONS,
